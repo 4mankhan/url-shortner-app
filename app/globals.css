@@ -1,6 +1,59 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-border: #e2e8f0;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-light: #eef2ff;
+  --muted: #64748b;
+  --sidebar-width: 260px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+@layer utilities {
+  .saas-card {
+    @apply bg-white rounded-xl border border-slate-200/80 shadow-sm;
+  }
+
+  .saas-input {
+    @apply w-full px-4 py-2.5 text-sm text-slate-800 bg-white border border-slate-200 rounded-lg
+           placeholder:text-slate-400
+           focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500
+           transition-all duration-200;
+  }
+
+  .saas-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-white
+           bg-indigo-600 rounded-lg hover:bg-indigo-700
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-colors duration-200 shadow-sm;
+  }
+
+  .saas-btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-slate-700
+           bg-white border border-slate-200 rounded-lg hover:bg-slate-50
+           transition-colors duration-200;
+  }
+
+  .saas-btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-red-600
+           bg-red-50 border border-red-200 rounded-lg hover:bg-red-100
+           transition-colors duration-200;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 40%, #faf5ff 100%);
+  }
+
+  .hero-glow {
+    box-shadow: 0 0 0 1px rgb(99 102 241 / 0.1), 0 20px 50px -12px rgb(99 102 241 / 0.25);
+  }
 }

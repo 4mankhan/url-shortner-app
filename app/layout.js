@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Url Shortner",
-  description: "Transform your url into a short one",
+  title: "TinerURL — Link Management",
+  description: "Create, manage, and track your shortened links",
   icons: {
     icon: "/url.ico", // points to public/url.ico
   },

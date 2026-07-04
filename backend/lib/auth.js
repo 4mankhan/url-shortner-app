@@ -10,8 +10,7 @@ export async function getUserFromToken() {
     return {
       error: NextResponse.json(
         { error: "Unauthorized - No access token" },
-        { status: 401 },
-        {message: "Login required"}
+        { status: 401 }
       ),
     };
   }

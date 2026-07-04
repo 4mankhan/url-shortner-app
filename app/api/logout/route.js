@@ -27,7 +27,7 @@ export async function POST() {
   // Clear refresh token
   response.cookies.set("refreshToken", "", {
     expires: new Date(0),
-    path: "/",
+    path: "/api/refresh",
   });
 
   return response;

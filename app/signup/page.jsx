@@ -31,8 +31,7 @@ export default function SignupPage() {
         return;
       }
 
-      // Signup success → redirect to login
-      window.location.href = "/login";
+      window.location.href = "/";
     } catch (err) {
       setError("Network error. Try again.");
       setLoading(false);

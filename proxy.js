@@ -1,15 +1,16 @@
 import { NextResponse } from "next/server";
 
 export function proxy(req) {
-  
-  const accesstoken = req.cookies.get("accessToken")?.value;
+  const accessToken = req.cookies.get("accessToken")?.value;
   const { pathname } = req.nextUrl;
 
-  if (!accesstoken && pathname !== "/login") {
+  const authPages = ["/login", "/signup"];
+
+  if (!accessToken && pathname === "/profile") {
     return NextResponse.redirect(new URL("/login", req.url));
   }
-   //restricts loggedin user to go to login page
-  if (accesstoken && pathname === "/login") {
+
+  if (accessToken && authPages.includes(pathname)) {
     return NextResponse.redirect(new URL("/", req.url));
   }
 
@@ -17,5 +18,5 @@ export function proxy(req) {
 }
 
 export const config = {
-  matcher: ["/", "/profile", "/login"],
+  matcher: ["/profile", "/login", "/signup"],
 };

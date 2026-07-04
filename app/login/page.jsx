@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { useAuth } from "@/components/AuthProvider";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -11,6 +12,7 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const { checkAuth } = useAuth();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -35,6 +37,7 @@ try {
   }
 
   router.push("/");
+  await checkAuth();
   toast.success("Login Successful", { id: loadingToast });
 } catch (err) {
   setError("Something went wrong");

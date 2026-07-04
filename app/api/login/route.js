@@ -48,19 +48,19 @@ export async function POST(req) {
     // Access Token cookie
     response.cookies.set("accessToken", accessToken, {
       httpOnly: true,
-      sameSite: "strict",
       secure: process.env.NODE_ENV === "production",
-      path: "/",
-      maxAge: 60 * 15, // 15 minutes
+      sameSite: "strict",
+      path: "/", // acceptable for access token
+      maxAge: 60 * 15,
     });
 
     // Refresh Token cookie
     response.cookies.set("refreshToken", refreshToken, {
       httpOnly: true,
-      sameSite: "strict",
       secure: process.env.NODE_ENV === "production",
-      path: "/",
-      maxAge: 7 * 24 * 60 * 60, // 7 days
+      sameSite: "strict",
+      path: "/api/refresh",
+      maxAge: 7 * 24 * 60 * 60,
     });
 
     return response;
